@@ -1,4 +1,4 @@
-package com.hfad.kundalikob_havo
+package com.hfad.kundalikob_havo.network
 
 import android.content.Context
 import android.net.ConnectivityManager
@@ -9,10 +9,14 @@ object Constants {
     const val APP_ID: String = "9a1b5afdfe51375ee1f1fa5da52b670f"
     const val BASE_URL: String = "https://api.openweathermap.org/data/"
     const val METRIC_UNIT: String = "metric"
+    const val Lang: String = "ru"
+    const val PREFERENCE_NAME = "WeatherAppPreference"
+    const val WEATHER_RESPONSE_DATA = "weather_response_data"
 
     fun isNetworkAvailable(context: Context): Boolean {
         val connectivityManager =
             context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             val network = connectivityManager.activeNetwork ?: return false
             val activeNetwork = connectivityManager.getNetworkCapabilities(network) ?: return false
